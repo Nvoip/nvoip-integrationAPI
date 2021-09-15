@@ -38,9 +38,10 @@
         <div class="container">
             <h4>Disparo de torpedo de voz</h4>
             <ul>
-                <li> disparar um torpedo de voz, é necessário gerar um token OAUTH.</li>
+                <li> Para disparar um torpedo de voz, é necessário ter realizado a geração do token OAuth na primeira etapa.</li>
+                <li> Caso dispare um torpedo de voz simples, basta inserir o número de destino e a mensagem que será enviada. Caso deseje disparar um torpedo de voz interativo, basta enviar as 2 mensagens e aguardar o retorno do DTMF do destino.</li>
             </ul>
-            <div id="paisnel" class="panel panel-default">
+            <div id="painel" class="panel panel-default">
                 <div class="panel-body">
                     <div class="col-md-5 col-sm-5 col-xs-12  padding border-right">
                         <label><span class="badge"></span></label>
@@ -98,6 +99,8 @@
         <h4>Agendar Disparo de Torpedo de Voz</h4>
         <br>
         <div class="container-fluid">
+            
+            
             <div class="col-md-2">
                 <input type="text" class="form-control" placeholder="Número de destino" name="agendarTorpedo"
                     id="agendarTorpedo">
@@ -110,6 +113,7 @@
             <div class="col-md-2">
                 <input type="time" class="form-control" placeholder="Hora" name="hora" id="hora">
             </div>
+            <br>
             <br>
             <div class="col-md-7">
                 <input class="form-control form-control-lg" type="text" placeholder="Digite a mensagem"

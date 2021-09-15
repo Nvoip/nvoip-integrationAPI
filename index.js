@@ -23,6 +23,7 @@ function gerarToken() {
 }
 var access_token_global = localStorage.getItem('access_token')
 var usuario_sip_global = localStorage.getItem('usersip')
+
 function realizarChamada() {
     var request = new XMLHttpRequest();
     var calledCall = document.getElementById("calledCall").value;
@@ -46,6 +47,7 @@ function realizarChamada() {
     };
     request.send(JSON.stringify(body));
 }
+
 function disparoSMS() {
     var numDestino = document.getElementById("numDestino").value;
     var mensagem = document.getElementById("mensagem").value;
@@ -74,6 +76,7 @@ function disparoSMS() {
     };
     request.send(JSON.stringify(body));
 }
+
 function disparoVoz() {
     var e = document.getElementById("select");
     var option = e.options[e.selectedIndex].value;
@@ -126,6 +129,7 @@ function disparoVoz() {
     }
     request.send(JSON.stringify(body));
 }
+
 function ConsultarSaldo() {
     var request = new XMLHttpRequest();
     request.open('GET', 'https://api.nvoip.com.br/v2/balance');
@@ -145,10 +149,11 @@ function ConsultarSaldo() {
                 //document.getElementById("saldo").type = "text";
             }
         }
-    
+
     };
     request.send();
 }
+
 function consultarChamada() {
     var data = "";
     var uuid = document.getElementById("retornaruuid").value;
@@ -169,6 +174,7 @@ function consultarChamada() {
     xhr.setRequestHeader("Authorization", "Bearer " + access_token_global);
     xhr.send(data);
 }
+
 function enviarCodigo2fa() {
     var request = new XMLHttpRequest();
     var email = document.getElementById("2faemail").value;
@@ -184,6 +190,11 @@ function enviarCodigo2fa() {
             var json = this.response;
             var obj = JSON.parse(json);
             document.getElementById("2fatoken").value = obj.token2fa;
+
+            if(this.status == 200) {
+                document.getElementById("2famensagemsucesso").value = "2FA enviado com sucesso!"
+                document.getElementById("2famensagemsucesso").type = "text";
+            }
         }
     };
     var body = {
@@ -192,6 +203,7 @@ function enviarCodigo2fa() {
     };
     request.send(JSON.stringify(body));
 }
+
 function enviarOTP() {
     var request = new XMLHttpRequest();
     var SMS = document.getElementById("OTPSMS").value;
@@ -211,7 +223,7 @@ function enviarOTP() {
                 document.getElementById("OTPcodigo").value = 'Mensagem enviada com sucesso!';
                 document.getElementById("OTPcodigo").type = "text";
                 document.getElementById("keyOTP").value = obj.key;
-                document.getElementById("keyOTP").type = "text";
+                //document.getElementById("keyOTP").type = "text";
             } else {
                 document.getElementById("OTPcodigo").value = 'Mensagem não enviada!';
             }
@@ -224,6 +236,7 @@ function enviarOTP() {
     };
     request.send(JSON.stringify(body));
 }
+
 function verificar2fa() {
     var data = "";
     var pin = document.getElementById("2facodigo").value;
@@ -248,6 +261,7 @@ function verificar2fa() {
     xhr.setRequestHeader("Authorization", "Bearer " + access_token_global);
     xhr.send(data);
 }
+
 function agendarTorpedo() {
     var request = new XMLHttpRequest();
     var numeroDestino = document.getElementById("agendarTorpedo").value;
@@ -280,6 +294,7 @@ function agendarTorpedo() {
     };
     request.send(JSON.stringify(body));
 }
+
 function listarTorpedo() {
     var xhr = new XMLHttpRequest();
     xhr.withCredentials = true;
@@ -294,6 +309,7 @@ function listarTorpedo() {
     xhr.setRequestHeader("Authorization", "Bearer " + access_token_global);
     xhr.send();
 }
+
 function excluirTorpedo() {
     var xhr = new XMLHttpRequest();
     var idTorpedo = document.getElementById("idTorpedo").value;
@@ -307,24 +323,33 @@ function excluirTorpedo() {
     xhr.setRequestHeader("Authorization", "Bearer " + access_token_global);
     xhr.send();
 }
+
 function limparLista() {
     document.getElementById("exampleFormControlTextarea1").value = "";
 }
+
 function verificarOTP() {
     var request = new XMLHttpRequest();
     var code = document.getElementById("code").value;
-    var key = document.getElementById("key").value;
-    request.open('GET', 'https://api.nvoip.com.br/v2/check/otp?code=' + code + '&key=' + key);
+    var keyOTP = document.getElementById("keyOTP").value;
+    request.open('GET', 'https://api.nvoip.com.br/v2/check/otp?code=' + code + '&key=' + keyOTP);
     request.setRequestHeader('Content-Type', 'application/json');
     request.onreadystatechange = function () {
         if (this.readyState === 4) {
             console.log('Status:', this.status);
             var json = this.response;
+
             var obj = JSON.parse(json);
             console.log('Headers:', this.getAllResponseHeaders());
             console.log('Body:', this.responseText);
+
+            if (this.status == 200) {
+                document.getElementById("OTPretorno").value = obj.status;
+                document.getElementById("OTPretorno").type = "text";
+            } else {
             document.getElementById("OTPretorno").value = obj.message;
             document.getElementById("OTPretorno").type = "text";
+            }
         }
     };
     request.send();
