@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <title>Torpedo</title>
+    <link href="style.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <script src="index.js"></script>
+</head>
+<body>
+    <script>
+        ConsultarSaldo();
+    </script>
+    <div class="container-fluid" id="teste">
+        <nav class="navbar navbar-default">
+            <div class="container">
+                <div class="collapse navbar-collapse" id="navbar-collapse-1">
+                    <ul class="nav navbar-nav navbar-left">
+                        <li><a href="index.html">OAuth</a></li>
+                        <li><a href="calls.html">Calls
+                            </a></li>
+                        <li><a href="2fa.html">2FA</a></li>
+                        <li><a href="otp.html">OTP</a></li>
+                        <li><a href="torpedo.html">Voice Torpedo</a></li>
+                        <li><a href="sms.html">SMS</a></li>
+                        <div class="col-md-2" style=" position:absolute; margin-left:80%; margin-top: 10px;">
+                            <input readonly type="text" class="form-control" id="saldo" placeholder="Saldo:"
+                                name="called">
+                        </div>
+                </div>
+            </div>
+        </nav>
+        <a href="https://painel.nvoip.com.br/" , target="blank"> <img src="logoo2.png"
+                style="margin-top:0%; margin-left: 50px;" alt="imagem"> </a>
+        <div class="container">
+            <h4>Disparo de torpedo de voz</h4>
+            <ul>
+                <li> disparar um torpedo de voz, é necessário gerar um token OAUTH.</li>
+            </ul>
+            <div id="paisnel" class="panel panel-default">
+                <div class="panel-body">
+                    <div class="col-md-5 col-sm-5 col-xs-12  padding border-right">
+                        <label><span class="badge"></span></label>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <select name="" id="select" class="form-control" aria-label="Default select example"
+                                    onchange="alterarTipo()">
+                                    <option value="simples">Torpedo de voz simples</option>
+                                    <option value="interativo">Torpedo de voz interativo</option>
+                                    <!--<option value="dinamico">Torpedo de voz interativo dinâmico</option>-->
+                                </select>
+                                <br>
+                            </div>
+                            <div class="col-md-6">
+                                <input type="text" class="form-control" placeholder="Número de destino"
+                                    name="calledtorpedo" id="numeroDestino">
+                            </div>
+                            <div class="col-md-12">
+                                <input class="form-control form-control-lg" type="text"
+                                    placeholder="Digite a primeira mensagem" name="msgtorpedo" id="audio">
+                                <br>
+                            </div>
+                            <div class="col-md-12">
+                                <input class="form-control form-control-lg" type="hidden"
+                                    placeholder="Digite a segunda mensagem" name="callertorpedo" id="audio2">
+                            </div>
+                            <script>
+                                function alterarTipo() {
+                                    var e = document.getElementById("select");
+                                    var option = e.options[e.selectedIndex].value;
+                                    if (option == "interativo") {
+                                        document.getElementById("audio2").type = "text";
+                                    } else if (option == "simples") {
+                                        document.getElementById("audio2").type = "hidden";
+                                    } else {
+                                    }
+                                }
+                            </script>
+                            <div class="col-md-4">
+                                <input readonly type="hidden" class="form-control" placeholder="Retorno DTMF"
+                                    name="calledtorpedo" id="retornoDTMF">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row-fluid"><br>
+                        <button style="background-color: #f37435; color: black; margin-top: 53px;;"
+                            class="btn btn-warning" class="btn btn-warning" onclick="disparoVoz()">Disparar
+                            Torpedo</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <h4>Agendar Disparo de Torpedo de Voz</h4>
+        <br>
+        <div class="container-fluid">
+            <div class="col-md-2">
+                <input type="text" class="form-control" placeholder="Número de destino" name="agendarTorpedo"
+                    id="agendarTorpedo">
+                <br>
+            </div>
+            <div class="col-md-2">
+                <input type="date" class="form-control" placeholder="Data" name="data" id="data">
+                <br>
+            </div>
+            <div class="col-md-2">
+                <input type="time" class="form-control" placeholder="Hora" name="hora" id="hora">
+            </div>
+            <br>
+            <div class="col-md-7">
+                <input class="form-control form-control-lg" type="text" placeholder="Digite a mensagem"
+                    name="agendarMensagem" id="agendarMensagem">
+                <br>
+                <br>
+            </div>
+            <div class="col-md-6">
+                <input readonly type="hidden" class="form-control" id="agendarTorpedoRetorno" placeholder=""
+                    name="agendarTorpedoRetorno">
+            </div>
+        </div>
+        <button style="background-color: #f37435; color: black" class="btn btn-warning" class="btn btn-warning"
+            id="listarAgendados" onclick="agendarTorpedo()"> Agendar</button>
+        <br> <br>
+        <div class="form-group">
+            <textarea readonly class="form-control" id="exampleFormControlTextarea1" rows="4"></textarea>
+        </div>
+        <div class="row-fluid">
+            <button style="background-color: #f37435; color: black;" type="button" onclick="listarTorpedo()"
+                class="btn btn-warning">Listar Torpedos</button>
+            <button style="background-color: #f37435; color: black;" type="button" onclick="limparLista()"
+                class="btn btn-warning">Limpar</button>
+        </div>
+        <br><br>
+        <input class="form-control form-control" type="text" placeholder="Digite o ID do torpedo" name="idTorpedo"
+            id="idTorpedo">
+        <div>
+            <ul>
+                <li>
+                    Para excluir o torpedo, cole o ID fornecido no box acima.
+                </li>
+            </ul>
+        </div>
+        <div class="row-fluid"><br>
+            <button style="background-color: #f37435; color: black;" type="button" onclick="excluirTorpedo()"
+                class="btn btn-warning">Excluir Torpedo</button>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OTP</title>
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <link href="style.css" rel="stylesheet" id="bootstrap-css">
+  <script src="index.js"></script>
+</head>
+<body>
+  <script>
+    ConsultarSaldo();
+  </script>
+  <div class="container-fluid" id="teste">
+    <nav class="navbar navbar-default">
+      <div class="container">
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="navbar-collapse-1">
+          <ul class="nav navbar-nav navbar-left">
+            <li><a href="index.html">OAuth</a></li>
+            <li><a href="calls.html">Calls
+              </a></li>
+            <li><a href="2fa.html">2FA</a></li>
+            <li><a href="otp.html">OTP</a></li>
+            <li><a href="torpedo.html">Voice Torpedo</a></li>
+            <li><a href="sms.html">SMS</a></li>
+            <div class="col-md-2" style=" position:absolute; margin-left:80%; margin-top: 10px;">
+              <input readonly type="text" class="form-control" id="saldo" placeholder="Saldo:" name="called">
+            </div>
+    </nav>
+    <a href="https://painel.nvoip.com.br/" , target="blank"> <img src="logoo2.png"
+        style="margin-top:0%; margin-left: 50px;" alt="imagem"> </a>
+    <div class="container">
+      <h4>OTP - Enviar Código</h4>
+      <div id="panel" class="panel panel-default">
+        <div class="panel-body no-padding">
+          <div class="row-fluid">
+            <div class="col-md-2">
+              <br>
+              <input type="text" class="form-control" placeholder="Número de SMS" name="topnumero" id="OTPSMS">
+            </div>
+            <div class="col-md-4">
+              <br>
+              <input type="text" class="form-control" id="OTPvoice" placeholder="Voice" name="voice">
+            </div>
+            <div class="col-md-4">
+              <br>
+              <input type="text" class="form-control" id="OTPemail" placeholder="E-mail" name="2faemail">
+            </div>
+          </div>
+          <br>
+          <button style="background-color: #f37435; color: black;" class="btn btn-warning"
+            onclick="enviarOTP()">Enviar</button>
+            <div class="col-md-4">
+              <br>
+              <input type="hidden" class="form-control" id="keyOTP" placeholder="" name="keyOTP">
+          </div>
+            <div class="col-md-4">
+              <br>
+              <input type="hidden" class="form-control" id="OTPcodigo" placeholder="E-mail" name="OTPcodigo">
+          </div>
+         
+        </div>
+      </div>
+      <div class="container">
+        <h4>OTP - Verificar Código</h4>
+  
+        <div id="panel" class="panel panel-default">
+          <div class="panel-body no-padding">
+            <div class="row-fluid">
+  
+  
+  
+  
+              <div class="col-md-2">
+                <br>
+                <input type="text" class="form-control" placeholder="Código recebido" name="recebido" id="code">
+                <input type="text" class="form-control" placeholder="key" name="recebido" id="key">
+  
+              
+  
+  
+            </div>
+            <br>
+  
+            <button style="background-color: #f37435; color: black;" class="btn btn-warning"
+              onclick="verificarOTP()">verificar</button>
+              <input readonly type="hidden" class="form-control" id="OTPretorno" placeholder=""
+              name="2faemail">
+  
+  
+          </div>
+  
+        </div>
+      
+</body>
+</html>

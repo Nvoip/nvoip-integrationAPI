@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calls</title>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <link href="style.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="index.js"></script>
+</head>
+<body>
+    
+<script>
+    ConsultarSaldo();
+</script>
+    <div class="container-fluid">
+        <nav class="navbar navbar-default">
+            <div class="container">
+                <div class="collapse navbar-collapse" id="navbar-collapse-1">
+                    <ul class="nav navbar-nav navbar-left">
+                        <li><a href="index.html">OAuth</a></li>
+                        <li><a href="calls.html">Calls
+                            </a></li>
+                        <li><a href="2fa.html">2FA</a></li>
+                        <li><a href="otp.html">OTP</a></li>
+                        <li><a href="torpedo.html">Voice Torpedo</a></li>
+                        <li><a href="sms.html">SMS</a></li>
+                        <div class="col-md-2" style=" position:absolute; margin-left:80%; margin-top: 10px;">
+                            <input readonly type="text" class="form-control" id="saldo" placeholder="Saldo:"
+                                name="called">
+                        </div>
+                </div>
+            </div>
+        </nav>
+        <a href="https://painel.nvoip.com.br/" , target="blank"> <img src="logoo2.png"
+                style="margin-top:0%; margin-left: 50px;" alt="imagem"> </a>
+        <div class="container">
+            <h4>Realizar chamada</h4>
+            <ul>
+                <li>Para realizar uma chamada, é necessário gerar um token OAUTH,<br>
+                    estar com o ramal autenticado em algum Softphone e possuir crédito.
+                    <br>
+                    Para inserir crédito, <a href="https://painel.nvoip.com.br/financials/payments"
+                        target="_blank">Clique aqui!</a>
+                </li>
+            </ul>
+            <div id="panel" class="panel panel-default">
+                <div class="panel-body no-padding">
+                    <div class="row-fluid">
+                    </div>
+                    <div class="col-md-5 col-sm-5 col-xs-12  padding border-right">
+                        <div class="col-md-8">
+                            <br>
+                            <input type="text" class="form-control" placeholder="Número de destino" name="called"
+                                id="calledCall">
+                        </div>
+                        <div class="col-md-6">
+                            <br>
+                            <input readonly type="hidden" class="form-control" id="retornaruuid" placeholder=""
+                                name="called">
+                        </div>
+                    
+                    <div class="row-fluid"><br>
+                        <button style="background-color: #f37435; color: black" class="btn btn-warning"
+                            onclick="realizarChamada()">Discar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <br>
+    <br>
+    <div class="container">
+        <h4>Consultar chamada</h4>
+        <ul>
+            <li>Com o token OAUTH gerado, você pode consultar uma chamada.... (?)</li>
+        </ul>
+        <div id="panel" class="panel panel-default">
+            <div class="panel-body no-padding">
+                <div class="col-md-5 col-sm-5 col-xs-12  padding border-right">
+                    <label label-default="" for="" name="caller"><span class="badge"></span></label>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <input readonly type="text" class="form-control" placeholder="Duração da Chamada"
+                                name="called" id="duracaochamada">
+                        </div>
+                        <div class="col-md-6">
+                            <input readonly type="text" class="form-control" placeholder="Status chamada" name="called"
+                                id="statuschamada">
+                        </div>
+                        <div class="col-md-12">
+                            <br>
+                            <input readonly type="text" class="form-control" placeholder="Link da gravação"
+                                name="called" id="linkgravacao">
+                        </div>
+                    </div>
+                    <div class="row-fluid"><br>
+                        <button style="background-color: #f37435; color: black" class="btn btn-warning"
+                            class="btn btn-warning" onclick="consultarChamada()">Consultar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+</body>
+</html>
