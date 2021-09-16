@@ -12,7 +12,7 @@
 </head>
 <body>
     <script>
-        ConsultarSaldo();
+        consultBalance();
     </script>
     <div class="container-fluid" id="teste">
         <nav class="navbar navbar-default">
@@ -27,7 +27,7 @@
                         <li><a href="torpedo.html">Voice Torpedo</a></li>
                         <li><a href="sms.html">SMS</a></li>
                         <div class="col-md-2" style=" position:absolute; margin-left:80%; margin-top: 10px;">
-                            <input readonly type="text" class="form-control" id="saldo" placeholder="Saldo:"
+                            <input readonly type="text" class="form-control" id="balance" placeholder="balance:"
                                 name="called">
                         </div>
                 </div>
@@ -44,7 +44,7 @@
                     <div class="col-md-2">
                         <br>
                         <input type="text" class="form-control" placeholder="Número de destino" name="called"
-                            id="2fanumero">
+                            id="2fanumber">
                     </div>
                     <div class="col-md-4">
                         <br>
@@ -52,11 +52,11 @@
                     </div>
                     <div>
                         <button style="background-color: #f37435; color: black; margin-top: 20px;"
-                            class="btn btn-warning" onclick="enviarCodigo2fa()">Enviar</button>
+                            class="btn btn-warning" onclick="sendCode2FA()">Enviar</button>
                     </div>
                     <div>
                         <br>
-                        <input readonly type="hidden" class="form-control" id="2famensagemsucesso" placeholder="E-mail" name="2faemail">
+                        <input readonly type="hidden" class="form-control" id="2faSucessMessage" placeholder="E-mail" name="2faemail">
                     </div>
                 </div>
                 <br>
@@ -80,10 +80,10 @@
                     </div>
                     <div class="col-md-4">
                         <br>
-                        <input readonly type="hidden" class="form-control" id="2faretorno" placeholder=""
+                        <input readonly type="hidden" class="form-control" id="2faReturn" placeholder=""
                             name="2faemail">
                         <button style="background-color: #f37435; color: black;" class="btn btn-warning"
-                            onclick="verificar2fa()">Verificar</button>
+                            onclick="check2FA()">Verificar</button>
                     </div>
 </body>
 </html>

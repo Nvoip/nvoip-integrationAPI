@@ -14,7 +14,7 @@
 <body>
     
 <script>
-    ConsultarSaldo();
+    consultBalance();
 </script>
     <div class="container-fluid">
         <nav class="navbar navbar-default">
@@ -29,7 +29,7 @@
                         <li><a href="torpedo.html">Voice Torpedo</a></li>
                         <li><a href="sms.html">SMS</a></li>
                         <div class="col-md-2" style=" position:absolute; margin-left:80%; margin-top: 10px;">
-                            <input readonly type="text" class="form-control" id="saldo" placeholder="Saldo:"
+                            <input readonly type="text" class="form-control" id="balance" placeholder="balance:"
                                 name="called">
                         </div>
                 </div>
@@ -65,7 +65,7 @@
                     
                     <div class="row-fluid"><br>
                         <button style="background-color: #f37435; color: black" class="btn btn-warning"
-                            onclick="realizarChamada()">Discar</button>
+                            onclick="makeCall()">Discar</button>
                     </div>
                 </div>
             </div>
@@ -86,21 +86,21 @@
                     <div class="row">
                         <div class="col-md-6">
                             <input readonly type="text" class="form-control" placeholder="Duração da Chamada"
-                                name="called" id="duracaochamada">
+                                name="called" id="callDuration">
                         </div>
                         <div class="col-md-6">
                             <input readonly type="text" class="form-control" placeholder="Status chamada" name="called"
-                                id="statuschamada">
+                                id="callStatus">
                         </div>
                         <div class="col-md-12">
                             <br>
                             <input readonly type="text" class="form-control" placeholder="Link da gravação"
-                                name="called" id="linkgravacao">
+                                name="called" id="recordLink">
                         </div>
                     </div>
                     <div class="row-fluid"><br>
                         <button style="background-color: #f37435; color: black" class="btn btn-warning"
-                            class="btn btn-warning" onclick="consultarChamada()">Consultar</button>
+                            class="btn btn-warning" onclick="consultCall()">Consultar</button>
                     </div>
                 </div>
             </div>

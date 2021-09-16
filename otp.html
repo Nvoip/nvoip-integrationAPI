@@ -11,7 +11,7 @@
 </head>
 <body>
   <script>
-    ConsultarSaldo();
+    consultBalance();
   </script>
   <div class="container-fluid" id="teste">
     <nav class="navbar navbar-default">
@@ -27,7 +27,7 @@
             <li><a href="torpedo.html">Voice Torpedo</a></li>
             <li><a href="sms.html">SMS</a></li>
             <div class="col-md-2" style=" position:absolute; margin-left:80%; margin-top: 10px;">
-              <input readonly type="text" class="form-control" id="saldo" placeholder="Saldo:" name="called">
+              <input readonly type="text" class="form-control" id="balance" placeholder="balance:" name="called">
             </div>
     </nav>
     <a href="https://painel.nvoip.com.br/" , target="blank"> <img src="logoo2.png"
@@ -39,7 +39,7 @@
           <div class="row-fluid">
             <div class="col-md-2">
               <br>
-              <input type="text" class="form-control" placeholder="Número de SMS" name="topnumero" id="OTPSMS">
+              <input type="text" class="form-control" placeholder="Número de SMS" name="topnumber" id="OTPSMS">
             </div>
             <div class="col-md-4">
               <br>
@@ -52,14 +52,14 @@
           </div>
           <br>
           <button style="background-color: #f37435; color: black;" class="btn btn-warning"
-            onclick="enviarOTP()">Enviar</button>
+            onclick="sendOTP()">Enviar</button>
             <div class="col-md-4">
               <br>
               <input type="hidden" class="form-control" id="keyOTP" placeholder="" name="keyOTP">
           </div>
             <div class="col-md-4">
               <br>
-              <input type="hidden" class="form-control" id="OTPcodigo" placeholder="E-mail" name="OTPcodigo">
+              <input type="hidden" class="form-control" id="OTPcode" placeholder="E-mail" name="OTPcode">
           </div>
          
         </div>
@@ -82,8 +82,8 @@
             <br>
   
             <button style="background-color: #f37435; color: black;" class="btn btn-warning"
-              onclick="verificarOTP()">Verificar</button>
-              <input readonly type="hidden" class="form-control" id="OTPretorno" placeholder=""
+              onclick="checkOTP()">Verificar</button>
+              <input readonly type="hidden" class="form-control" id="OTPreturn" placeholder=""
               name="2faemail">
   
   

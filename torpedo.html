@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,9 +11,10 @@
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
     <script src="index.js"></script>
 </head>
+
 <body>
     <script>
-        ConsultarSaldo();
+        consultBalance();
     </script>
     <div class="container-fluid" id="teste">
         <nav class="navbar navbar-default">
@@ -27,7 +29,7 @@
                         <li><a href="torpedo.html">Voice Torpedo</a></li>
                         <li><a href="sms.html">SMS</a></li>
                         <div class="col-md-2" style=" position:absolute; margin-left:80%; margin-top: 10px;">
-                            <input readonly type="text" class="form-control" id="saldo" placeholder="Saldo:"
+                            <input readonly type="text" class="form-control" id="balance" placeholder="balance:"
                                 name="called">
                         </div>
                 </div>
@@ -38,8 +40,11 @@
         <div class="container">
             <h4>Disparo de torpedo de voz</h4>
             <ul>
-                <li> Para disparar um torpedo de voz, é necessário ter realizado a geração do token OAuth na primeira etapa.</li>
-                <li> Caso dispare um torpedo de voz simples, basta inserir o número de destino e a mensagem que será enviada. Caso deseje disparar um torpedo de voz interativo, basta enviar as 2 mensagens e aguardar o retorno do DTMF do destino.</li>
+                <li> Para disparar um torpedo de voz, é necessário ter realizado a geração do token OAuth na primeira
+                    etapa.</li>
+                <li> Caso dispare um torpedo de voz simples, basta inserir o número de destino e a message que será
+                    enviada. Caso deseje disparar um torpedo de voz interativo, basta enviar as 2 mensagens e aguardar o
+                    retorno do DTMF do destino.</li>
             </ul>
             <div id="painel" class="panel panel-default">
                 <div class="panel-body">
@@ -57,16 +62,16 @@
                             </div>
                             <div class="col-md-6">
                                 <input type="text" class="form-control" placeholder="Número de destino"
-                                    name="calledtorpedo" id="numeroDestino">
+                                    name="calledtorpedo" id="destinationNumber">
                             </div>
                             <div class="col-md-12">
                                 <input class="form-control form-control-lg" type="text"
-                                    placeholder="Digite a primeira mensagem" name="msgtorpedo" id="audio">
+                                    placeholder="Digite a primeira message" name="msgtorpedo" id="audio">
                                 <br>
                             </div>
                             <div class="col-md-12">
                                 <input class="form-control form-control-lg" type="hidden"
-                                    placeholder="Digite a segunda mensagem" name="callertorpedo" id="audio2">
+                                    placeholder="Digite a segunda message" name="callertorpedo" id="audio2">
                             </div>
                             <script>
                                 function alterarTipo() {
@@ -76,82 +81,97 @@
                                         document.getElementById("audio2").type = "text";
                                     } else if (option == "simples") {
                                         document.getElementById("audio2").type = "hidden";
-                                    } else {
-                                    }
+                                    } else {}
                                 }
                             </script>
                             <div class="col-md-4">
                                 <input readonly type="hidden" class="form-control" placeholder="Retorno DTMF"
                                     name="calledtorpedo" id="retornoDTMF">
                             </div>
+
                         </div>
-                    </div>
-                    <div class="row-fluid"><br>
                         <button style="background-color: #f37435; color: black; margin-top: 53px;;"
-                            class="btn btn-warning" class="btn btn-warning" onclick="disparoVoz()">Disparar
+                            class="btn btn-warning" class="btn btn-warning" onclick="voiceTrigger()">Disparar
                             Torpedo</button>
+                            
                     </div>
+
+
                 </div>
             </div>
         </div>
     </div>
     <div class="container">
-        <h4>Agendar Disparo de Torpedo de Voz</h4>
+        <div id="painel" class="panel panel-default">
+            <div class="panel-body">
+                <div class="col-md-5 col-sm-5 col-xs-12  padding border-right">
+
+                    <h4>Agendar Disparo de Torpedo de Voz</h4>
+                    <br>
+                    <div class="container-fluid">
+
+
+                        <div class="col-md-6">
+                            <input type="text" class="form-control" placeholder="Número de destino"
+                                name="scheduleTorpedo" id="scheduleTorpedo">
+                            <br>
+                        </div>
+                        <div class="col-md-6">
+                            <input type="date" class="form-control" placeholder="date" name="date" id="date">
+                            <br>
+                        </div>
+                        <div class="col-md-6">
+                            <input type="time" class="form-control" placeholder="hour" name="hour" id="hour">
+                        </div>
+                        <br>
+
+                        <div class="col-md-6">
+                            <input class="form-control form-control-lg" type="text" placeholder="Digite a message"
+                                name="agendarmessage" id="agendarmessage">
+                            <br>
+
+
+                            <input readonly type="hidden" class="form-control" id="returnScheduleTorpedo" placeholder=""
+                                name="returnScheduleTorpedo">
+                        </div>
+                        <button style="background-color: #f37435; color: black" class="btn btn-warning"
+                            class="btn btn-warning" id="listarAgendados" onclick="scheduleTorpedo()"> Agendar</button>
+                        <br>
+                    </div>
+
+                </div>
+            </div>
+        </div>
         <br>
-        <div class="container-fluid">
-            
-            
-            <div class="col-md-2">
-                <input type="text" class="form-control" placeholder="Número de destino" name="agendarTorpedo"
-                    id="agendarTorpedo">
-                <br>
+        <div id="painel" class="panel panel-default">
+            <div class="panel-body">
+                <div class="col-md-5 col-sm-5 col-xs-12  padding border-right">
+                    <h4>Excluir torpedo de voz</h4>
+                    <div class="form-group">
+                        <textarea readonly class="form-control" id="exampleFormControlTextarea1" rows="5"></textarea>
+                    </div>
+                    <div class="row-fluid">
+                        <button style="background-color: #f37435; color: black;" type="button" onclick="listTorpedo()"
+                            class="btn btn-warning">Listar Torpedos</button>
+                        <button style="background-color: #f37435; color: black;" type="button" onclick="clearList()"
+                            class="btn btn-warning">Limpar</button>
+                    </div>
+                    <br><br>
+                    <input class="form-control form-control" type="text" placeholder="Digite o ID do torpedo"
+                        name="idTorpedo" id="idTorpedo">
+                    <div>
+                        <ul>
+                            <li>
+                                Para excluir o torpedo, cole o ID fornecido no box acima.
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="row-fluid"><br>
+                        <button style="background-color: #f37435; color: black;" type="button"
+                            onclick="deleteTorpedo()" class="btn btn-warning">Excluir Torpedo</button>
+                    </div>
+                </div>
             </div>
-            <div class="col-md-2">
-                <input type="date" class="form-control" placeholder="Data" name="data" id="data">
-                <br>
-            </div>
-            <div class="col-md-2">
-                <input type="time" class="form-control" placeholder="Hora" name="hora" id="hora">
-            </div>
-            <br>
-            <br>
-            <div class="col-md-7">
-                <input class="form-control form-control-lg" type="text" placeholder="Digite a mensagem"
-                    name="agendarMensagem" id="agendarMensagem">
-                <br>
-                <br>
-            </div>
-            <div class="col-md-6">
-                <input readonly type="hidden" class="form-control" id="agendarTorpedoRetorno" placeholder=""
-                    name="agendarTorpedoRetorno">
-            </div>
-        </div>
-        <button style="background-color: #f37435; color: black" class="btn btn-warning" class="btn btn-warning"
-            id="listarAgendados" onclick="agendarTorpedo()"> Agendar</button>
-        <br> <br>
-        <div class="form-group">
-            <textarea readonly class="form-control" id="exampleFormControlTextarea1" rows="4"></textarea>
-        </div>
-        <div class="row-fluid">
-            <button style="background-color: #f37435; color: black;" type="button" onclick="listarTorpedo()"
-                class="btn btn-warning">Listar Torpedos</button>
-            <button style="background-color: #f37435; color: black;" type="button" onclick="limparLista()"
-                class="btn btn-warning">Limpar</button>
-        </div>
-        <br><br>
-        <input class="form-control form-control" type="text" placeholder="Digite o ID do torpedo" name="idTorpedo"
-            id="idTorpedo">
-        <div>
-            <ul>
-                <li>
-                    Para excluir o torpedo, cole o ID fornecido no box acima.
-                </li>
-            </ul>
-        </div>
-        <div class="row-fluid"><br>
-            <button style="background-color: #f37435; color: black;" type="button" onclick="excluirTorpedo()"
-                class="btn btn-warning">Excluir Torpedo</button>
-        </div>
-    </div>
 </body>
+
 </html>

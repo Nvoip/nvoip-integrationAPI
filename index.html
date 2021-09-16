@@ -11,7 +11,7 @@
 </head>
 <body>
     <script>
-        ConsultarSaldo();
+        consultBalance();
     </script>
     <div class="container-fluid" id="teste">
         <nav class="navbar navbar-default">
@@ -29,7 +29,7 @@
                         <li><a href="torpedo.html">Voice Torpedo</a></li>
                         <li><a href="sms.html">SMS</a></li>
                         <div class="col-md-2" style=" position:absolute; margin-left:80%; margin-top: 10px;">
-                            <input readonly type="text" class="form-control" id="saldo" placeholder="Saldo:"
+                            <input readonly type="text" class="form-control" id="balance" placeholder="balance:"
                                 name="called">
                         </div>
                 </div>
@@ -51,7 +51,7 @@
                             <label label-default="" for="" name="caller"><span class="badge"></span></label>
                             <div class="row">
                                 <div class="col-md-6">
-                                    <input type="text" class="form-control" id="usuariosip" placeholder="Usuário SIP"
+                                    <input type="text" class="form-control" id="userSip" placeholder="Usuário SIP"
                                         name="caller">
                                 </div>
                                 <div class="col-md-6">
@@ -63,7 +63,7 @@
                                     <br>
                                     <br>
                                     <button style="background-color: #f37435; color: black; margin-left: 15px ;"
-                                        type="button" onclick="gerarToken()" class="btn btn-warning">Gerar</button>
+                                        type="button" onclick="generateToken()" class="btn btn-warning">Gerar</button>
                                 </div>
                                 <div class="col-md-12">
                                     <br>
