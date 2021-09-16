@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,6 +11,7 @@
     <title>2FA</title>
     <script src="index.js"></script>
 </head>
+
 <body>
     <script>
         consultBalance();
@@ -17,7 +19,7 @@
     <div class="container-fluid" id="teste">
         <nav class="navbar navbar-default">
             <div class="container">
-                <div class="collapse navbar-collapse" id="navbar-collapse-1">
+                <div style="position: relative;">
                     <ul class="nav navbar-nav navbar-left">
                         <li><a href="index.html">OAuth</a></li>
                         <li><a href="calls.html">Calls
@@ -56,14 +58,15 @@
                     </div>
                     <div>
                         <br>
-                        <input readonly type="hidden" class="form-control" id="2faSucessMessage" placeholder="E-mail" name="2faemail">
+                        <input readonly type="hidden" class="form-control" id="2faSucessMessage" placeholder="E-mail"
+                            name="2faemail">
                     </div>
                 </div>
                 <br>
                 <div class="col-md-4">
                     <br>
                     <input type="hidden" class="form-control" id="2fatoken" placeholder="E-mail" name="2faemail">
-                    
+
                 </div>
             </div>
         </div>
@@ -86,4 +89,5 @@
                             onclick="check2FA()">Verificar</button>
                     </div>
 </body>
+
 </html>

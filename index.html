@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,6 +10,7 @@
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
     <script src="index.js"></script>
 </head>
+
 <body>
     <script>
         consultBalance();
@@ -19,7 +21,7 @@
                 <div class="navbar-header">
                 </div>
                 <!-- Collect the nav links, forms, and other content for toggling -->
-                <div class="collapse navbar-collapse" id="navbar-collapse-1">
+                <div style="position: relative;">
                     <ul class="nav navbar-nav navbar-left">
                         <li><a href="index.html">OAuth</a></li>
                         <li><a href="calls.html">Calls
@@ -37,16 +39,17 @@
         </nav>
         <a href="https://painel.nvoip.com.br/" , target="blank"> <img src="logoo2.png"
                 style="margin-top:0%; margin-left: 50px;" alt="img"> </a>
-        <div class="container" >
-        <div class=" dentro">
-            <h4>Gerar Token OAUTH</h4>
-            <p>Insira seu Usuário SIP e User-Token para gerar o Access-Token. </p>
-            <ul>
-                <li>Para localizar seu usuário SIP, basta acessar o painel Nvoip -> configurações -> usuários -> coluna "usuário SIP". </li>
-                <li>Para acessar seu User-Token, basta acessar o painel Nvoip -> API.</li>
-            </ul>
-            <div id="panel" class="panel panel-default">
-                <div class="panel-body no-padding">
+        <div class="container">
+            <div class=" dentro">
+                <h4>Gerar Token OAUTH</h4>
+                <p>Insira seu Usuário SIP e User-Token para gerar o Access-Token. </p>
+                <ul>
+                    <li>Para localizar seu usuário SIP, basta acessar o painel Nvoip -> configurações -> usuários ->
+                        coluna "usuário SIP". </li>
+                    <li>Para acessar seu User-Token, basta acessar o painel Nvoip -> API.</li>
+                </ul>
+                <div id="panel" class="panel panel-default">
+                    <div class="panel-body no-padding">
                         <div class="col-md-5 col-sm-5 col-xs-12  padding border-right">
                             <label label-default="" for="" name="caller"><span class="badge"></span></label>
                             <div class="row">
@@ -67,13 +70,13 @@
                                 </div>
                                 <div class="col-md-12">
                                     <br>
-                                    <input readonlys type="text" class="form-control" id="accesstoken" placeholder="Access-Token"
-                                        name="called">
+                                    <input readonlys type="text" class="form-control" id="accesstoken"
+                                        placeholder="Access-Token" name="called">
                                 </div>
                             </div>
                         </div>
-                    
+
+                    </div>
                 </div>
             </div>
         </div>
-    </div>

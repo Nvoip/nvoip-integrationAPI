@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,6 +12,7 @@
     <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
     <script src="index.js"></script>
 </head>
+
 <body>
     <script>
         consultBalance();
@@ -29,7 +31,7 @@
                     </button>
                 </div>
                 <!-- Collect the nav links, forms, and other content for toggling -->
-                <div class="collapse navbar-collapse" id="navbar-collapse-1">
+                <div style="position: relative;">
                     <ul class="nav navbar-nav navbar-left">
                         <li><a href="index.html">OAuth</a></li>
                         <li><a href="calls.html">Calls
@@ -39,52 +41,55 @@
                         <li><a href="torpedo.html">Voice Torpedo</a></li>
                         <li><a href="sms.html">SMS</a></li>
                         <div class="col-md-2" style=" position:absolute; margin-left:80%; margin-top: 10px;">
-                            <input readonly type="text" class="form-control" id="balance" placeholder="Saldo:" name="called">
+                            <input readonly type="text" class="form-control" id="balance" placeholder="Saldo:"
+                                name="called">
                         </div>
                 </div>
             </div>
         </nav>
         <a href="https://painel.nvoip.com.br/" , target="blank"> <img src="logoo2.png"
                 style="margin-top:0%; margin-left: 50px;" alt="img"> </a>
-                <div class="container">
-                    <div id="painel" class="panel panel-default">
-                        <div class="panel-body">
-                            <div class="col-md-5 col-sm-5 col-xs-12  padding border-right">
-                
+        <div class="container">
+            <div id="painel" class="panel panel-default">
+                <div class="panel-body">
+                    <div class="col-md-5 col-sm-5 col-xs-12  padding border-right">
+
                         <h4>Disparo de SMS</h4>
                         <ul>
-                        <li> Para disparar um SMS, é necessário realizar a geração do token OAuth fornecido na primeira etapa, possuir créditos e ter acesso ao envio de SMS.</li>
-                    </ul>
-                    <div id="painel" class="class=panel panel-default">
-                        <div class="col-sm-offset-2 col-sm-10">
-            
-                        
-            
-                                    <label><span class="badge"></span></label>
-                                    <div class="row">
-            
-                                        <div class="col-md-6">
-                                            <input type="text" class="form-control" placeholder="Número de destino" name="calledsms"
-                                                id="destinationNumber">
-                                        </div>
-                                        <div class="col-md-6">
-                                            <input type="text" class="form-control" placeholder="Digite a message" name="msg"
-                                                id="message">
-            
-                                        </div>
+                            <li> Para disparar um SMS, é necessário realizar a geração do token OAuth fornecido na
+                                primeira etapa, possuir créditos e ter acesso ao envio de SMS.</li>
+                        </ul>
+                        <div id="painel" class="class=panel panel-default">
+                            <div class="col-sm-offset-2 col-sm-10">
+
+
+
+                                <label><span class="badge"></span></label>
+                                <div class="row">
+
+                                    <div class="col-md-6">
+                                        <input type="text" class="form-control" placeholder="Número de destino"
+                                            name="calledsms" id="destinationNumber">
                                     </div>
-            
-                                    <div class="row-fluid"><br>
-                                        <button style="background-color: #f37435; color: black" class="btn btn-warning"
-                                            class="btn btn-warning" onclick="SMSTrigger()">Disparar</button>
+                                    <div class="col-md-6">
+                                        <input type="text" class="form-control" placeholder="Digite a message"
+                                            name="msg" id="message">
+
                                     </div>
-                                    <input readonly type="hidden" class="form-control" id="statusSMS" placeholder=""
-                                        name="statusSMS">
                                 </div>
+
+                                <div class="row-fluid"><br>
+                                    <button style="background-color: #f37435; color: black" class="btn btn-warning"
+                                        class="btn btn-warning" onclick="SMSTrigger()">Disparar</button>
+                                </div>
+                                <input readonly type="hidden" class="form-control" id="statusSMS" placeholder=""
+                                    name="statusSMS">
                             </div>
                         </div>
                     </div>
                 </div>
-                
+            </div>
+
 </body>
+
 </html>

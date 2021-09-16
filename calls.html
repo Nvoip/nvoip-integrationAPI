@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,16 +12,17 @@
     <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
     <script src="index.js"></script>
 </head>
+
 <body>
-    
-<script>
-    consultBalance();
-</script>
+
+    <script>
+        consultBalance();
+    </script>
     <div class="container-fluid">
         <nav class="navbar navbar-default">
             <div class="container">
-                <div class="collapse navbar-collapse" id="navbar-collapse-1">
-                    <ul class="nav navbar-nav navbar-left">
+                <div style="position: relative;">
+                    <ul class="nav navbar-nav navbar-left" >
                         <li><a href="index.html">OAuth</a></li>
                         <li><a href="calls.html">Calls
                             </a></li>
@@ -62,22 +64,24 @@
                             <input readonly type="hidden" class="form-control" id="retornaruuid" placeholder=""
                                 name="called">
                         </div>
-                    
-                    <div class="row-fluid"><br>
-                        <button style="background-color: #f37435; color: black" class="btn btn-warning"
-                            onclick="makeCall()">Discar</button>
+
+                        <div class="row-fluid"><br>
+                            <button style="background-color: #f37435; color: black" class="btn btn-warning"
+                                onclick="makeCall()">Discar</button>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
     </div>
     <br>
     <br>
     <div class="container">
         <h4>Consultar chamada</h4>
         <ul>
-            <li>Com o token OAUTH gerado, você pode consultar a chamada que está em andamento através da requisição acima. Será retornada a duração da chamada, o status e o link da gravação até o momento da consulta.</li>
+            <li>Com o token OAUTH gerado, você pode consultar a chamada que está em andamento através da requisição
+                acima. Será retornada a duração da chamada, o status e o link da gravação até o momento da consulta.
+            </li>
         </ul>
         <div id="panel" class="panel panel-default">
             <div class="panel-body no-padding">
@@ -109,4 +113,5 @@
     </div>
     </div>
 </body>
+
 </html>
