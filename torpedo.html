@@ -101,10 +101,10 @@
             </div>
         </div>
     </div>
-    
-    
+
+
     <div class="container">
-        
+
         <h4>Agendar Disparo de Torpedo de Voz</h4>
         <div id="painel" class="panel panel-default">
             <div class="panel-body">
@@ -117,14 +117,14 @@
                         <div class="col-md-6">
                             <input type="text" class="form-control" placeholder="Número de destino"
                                 name="scheduleTorpedo" id="scheduleTorpedo">
-                                <br>
-                                <input type="time" class="form-control" placeholder="hour" name="hour" id="hour">
+                            <br>
                         </div>
                         <div class="col-md-6">
                             <input type="date" class="form-control" placeholder="date" name="date" id="date">
                             <br>
                         </div>
                         <div class="col-md-6">
+                            <input type="time" class="form-control" placeholder="hour" name="hour" id="hour">
                         </div>
                         <br>
 
@@ -132,13 +132,17 @@
                             <input class="form-control form-control-lg" type="text" placeholder="Digite a message"
                                 name="agendarmessage" id="agendarmessage">
                             <br>
-
-
+                        </div>
+                        <div class="col-md-12">
                             <input readonly type="hidden" class="form-control" id="returnScheduleTorpedo" placeholder=""
                                 name="returnScheduleTorpedo">
+                            <br>
+                            <button style="background-color: #f37435; color: black" class="btn btn-warning"
+                                class="btn btn-warning" id="listarAgendados" onclick="scheduleTorpedo()">
+                                Agendar</button>
                         </div>
-                        <button style="background-color: #f37435; color: black" class="btn btn-warning"
-                            class="btn btn-warning" id="listarAgendados" onclick="scheduleTorpedo()"> Agendar</button>
+                        <br>
+
                         <br>
                     </div>
 
@@ -150,7 +154,7 @@
         <div id="painel" class="panel panel-default">
             <div class="panel-body">
                 <div class="col-md-5 col-sm-5 col-xs-12  padding border-right">
-                    
+
                     <div class="form-group">
                         <textarea readonly class="form-control" id="exampleFormControlTextarea1" rows="5"></textarea>
                     </div>
@@ -170,6 +174,7 @@
                             </li>
                         </ul>
                     </div>
+                    <input readonly type="hidden" class="form-control" id="deletionTorpedo" name="deletionTorpedo">
                     <div class="row-fluid"><br>
                         <button style="background-color: #f37435; color: black;" type="button" onclick="deleteTorpedo()"
                             class="btn btn-warning">Excluir Torpedo</button>

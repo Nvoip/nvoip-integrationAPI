@@ -312,10 +312,19 @@ function listTorpedo() {
 function deleteTorpedo() {
     var xhr = new XMLHttpRequest();
     var idTorpedo = document.getElementById("idTorpedo").value;
+    
     xhr.withCredentials = true;
     xhr.addEventListener("readystatechange", function () {
         if (this.readyState === 4) {
             console.log(this.responseText);
+
+            if (this.response == "") {
+                document.getElementById("deletionTorpedo").value = "Torpedo excluído com sucesso!";
+                document.getElementById("deletionTorpedo").type = "text";
+            } else {
+                document.getElementById("deletionTorpedo").value = "Ocorreu um erro ao excluir!";
+                document.getElementById("deletionTorpedo").type = "text";
+            }
         }
     });
     xhr.open("DELETE", "https://api.nvoip.com.br/v2/delete/sched/torpedo?schedkey=" + idTorpedo);
