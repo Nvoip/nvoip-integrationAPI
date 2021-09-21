@@ -362,3 +362,26 @@ function checkOTP() {
     };
     request.send();
 }
+
+function encerrarChamada(){
+    var request = new XMLHttpRequest();
+    var id =  document.getElementById("retornaruuid").value;
+   
+request.open('GET', 'https://api.nvoip.com.br/v2/endcall?callId=' + id);
+
+request.setRequestHeader('Content-Type', 'application/json');
+request.setRequestHeader('Authorization', 'Bearer '+accessTokenGlobal);
+
+
+request.onreadystatechange = function () {
+  if (this.readyState === 4) {
+    console.log('Status:', this.status);
+    console.log('Headers:', this.getAllResponseHeaders());
+    console.log('Body:', this.responseText);
+  }
+  
+};
+
+request.send();
+    
+}
