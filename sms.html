@@ -51,44 +51,43 @@
                 style="margin-top:0%; margin-left: 50px;" alt="img"> </a>
         <div class="container">
             <h4>Disparo de SMS</h4>
-                        <ul>
-                            <li> Para disparar um SMS, é necessário realizar a geração do token OAuth fornecido na
-                                primeira etapa, possuir créditos e ter acesso ao envio de SMS.</li>
-                        </ul>
+            <ul>
+                <li> Para disparar um SMS, é necessário realizar a geração do token OAuth fornecido na
+                    primeira etapa, possuir créditos e ter acesso ao envio de SMS.</li>
+            </ul>
             <div id="painel" class="panel panel-default">
                 <div class="panel-body">
 
-                        
-                        <div id="painel" class="class=panel panel-default">
-                           
 
+                    <div id="painel" class="class=panel panel-default">
 
+                        <div class="row">
 
-                          
-                                <div class="row">
+                            <div class="col-md-4">
+                                <input type="number" class="form-control" placeholder="Número de destino"
+                                    name="calledsms" id="destinationNumber">
+                            </div>
+                            <div class="col-md-8">
+                                <input type="text" class="form-control" placeholder="Digite a message" name="msg"
+                                    id="message">
 
-                                    <div class="col-md-6">
-                                        <input type="number" class="form-control" placeholder="Número de destino"
-                                            name="calledsms" id="destinationNumber">
-                                    </div>
-                                    <div class="col-md-6">
-                                        <input type="text" class="form-control" placeholder="Digite a message"
-                                            name="msg" id="message">
-
-                                    </div>
-                                </div>
-
-                                <div class="row-fluid"><br>
-                                    <button style="background-color: #f37435; color: black" class="btn btn-warning"
-                                        class="btn btn-warning" onclick="SMSTrigger()">Disparar</button>
-                                </div>
-                                <input readonly type="hidden" class="form-control" id="statusSMS" placeholder=""
-                                    name="statusSMS">
                             </div>
                         </div>
+                        <div class="checkbox">
+                            <label><input type="checkbox" id="flashSMS" value="yes">Flash SMS</label>
+                          </div>
+
+                        <div class="row-fluid"><br>
+                            <button style="background-color: #f37435; color: black" class="btn btn-warning"
+                                class="btn btn-warning" onclick="SMSTrigger()">Disparar</button>
+                        </div>
+                        <input readonly type="hidden" class="form-control" id="statusSMS" placeholder=""
+                            name="statusSMS">
                     </div>
                 </div>
             </div>
+        </div>
+    </div>
 
 </body>
 

@@ -7,7 +7,7 @@ function generateToken() {
     xhr.withCredentials = true;
     xhr.addEventListener("readystatechange", function () {
         if (this.readyState === 4) {
-            debugger
+            //debugger
             console.log(this.responseText);
             var json = this.response;
             var obj = JSON.parse(json);
@@ -52,6 +52,9 @@ function SMSTrigger() {
     var destinationNumber = document.getElementById("destinationNumber").value;
     var message = document.getElementById("message").value;
     var request = new XMLHttpRequest();
+    var flash =  document.getElementById("flashSMS").value;
+    var flash2 = "";
+    console.log(flash.checked);
     request.open('POST', 'https://api.nvoip.com.br/v2/sms');
     request.setRequestHeader('Content-Type', 'application/json');
     request.setRequestHeader('Authorization', 'Bearer ' + accessTokenGlobal);
@@ -68,11 +71,18 @@ function SMSTrigger() {
             document.getElementById("statusSMS").value = "SMS não disparado!";
             document.getElementById("statusSMS").type = "text";
         }
+        
+        if(flash == true) {
+            var flash2 = 'true'
+        } else {
+            var flash2 = 'false'
+        }
     };
+    console.log(flash2);
     var body = {
         'numberPhone': destinationNumber,
         'message': message,
-        'flashSms': false
+        'flashSms': flash2,
     };
     request.send(JSON.stringify(body));
 }
@@ -134,6 +144,7 @@ function consultBalance() {
     var request = new XMLHttpRequest();
     request.open('GET', 'https://api.nvoip.com.br/v2/balance');
     var access_token_local = localStorage.getItem('access_token');
+    console.log(access_token_local)
     if (access_token_local == null || access_token_local == undefined) {
         document.getElementById("balance").value = "Saldo: R$";
     } else {
