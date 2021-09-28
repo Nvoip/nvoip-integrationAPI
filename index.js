@@ -49,12 +49,13 @@ function makeCall() {
 }
 
 function SMSTrigger() {
+  
     var destinationNumber = document.getElementById("destinationNumber").value;
     var message = document.getElementById("message").value;
     var request = new XMLHttpRequest();
-    var flash =  document.getElementById("flashSMS").value;
-    var flash2 = "";
-    console.log(flash.checked);
+    var flash =  "";
+    
+    //console.log(flash.checked);
     request.open('POST', 'https://api.nvoip.com.br/v2/sms');
     request.setRequestHeader('Content-Type', 'application/json');
     request.setRequestHeader('Authorization', 'Bearer ' + accessTokenGlobal);
@@ -63,6 +64,7 @@ function SMSTrigger() {
             console.log('Status:', this.status);
             console.log('Headers:', this.getAllResponseHeaders());
             console.log('Body:', this.responseText);
+            
         }
         if (this.status == 200) {
             document.getElementById("statusSMS").value = "SMS enviado com sucesso!";
@@ -71,18 +73,18 @@ function SMSTrigger() {
             document.getElementById("statusSMS").value = "SMS não disparado!";
             document.getElementById("statusSMS").type = "text";
         }
-        
-        if(flash == true) {
-            var flash2 = 'true'
-        } else {
-            var flash2 = 'false'
-        }
     };
-    console.log(flash2);
+
+    if (document.getElementById('flashSMS').checked) {
+        var flash = true;
+    } else {
+        var flash = false;
+    }
+    
     var body = {
         'numberPhone': destinationNumber,
         'message': message,
-        'flashSms': flash2,
+        'flashSms': flash,
     };
     request.send(JSON.stringify(body));
 }
